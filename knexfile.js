@@ -1,8 +1,9 @@
 require('dotenv').config();
+const path = require('path');
 
 module.exports = {
   development: {
-    client: process.env.DB_CLIENT,
+    client: process.env.DB_CLIENT || 'pg',
 
     connection: {
       host: process.env.PG_HOST,
@@ -13,13 +14,13 @@ module.exports = {
 
     migrations: {
       tableName: 'knex_migrations',
-      directory: './src/database/migrations',
+      directory: path.resolve(__dirname, 'src', 'database', 'migrations'),
     },
 
     seeds: {
-      directory: './src/database/seeds',
+      directory: path.resolve(__dirname, 'src', 'database', 'seeds'),
     },
 
     useNullAsDefault: true,
-  }
+  },
 };
