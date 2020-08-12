@@ -16,6 +16,10 @@ class App {
   }
 
   routes() {
+    this.server.get('/', (req, res) => res.json({
+      ok: 'funcionou'
+    }));
+
     routes.loadRoutes(this.server);
   }
 }

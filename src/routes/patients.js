@@ -1,8 +1,8 @@
-const { Router } = require('express');
+const express = require('express');
 const PatientController = require('../controllers/PatientController');
-const PatientsMiddlewares = require('../middlewares/PatientsMiddlewares');
+const PatientsMiddlewares = require('../middlewares/patientsMiddlewares');
 
-const routes = new Router();
+const routes = express.Router();
 
 routes.get('/', PatientController.index);
 routes.post('/new', PatientsMiddlewares.validateDataOnCreate, PatientController.store);
