@@ -1,6 +1,6 @@
-import * as Yup from 'yup';
-import PatientValidations from '../validations/PatientValidations';
-import knex from '../database';
+const Yup = require('yup');
+const PatientValidations = require('../validations/PatientValidations');
+const knex = require('../database');
 
 // Creating a schema to check if the request body is valid
 const schema = Yup.object().shape({
@@ -18,7 +18,12 @@ const schema = Yup.object().shape({
 
 class PatientsMiddlewares {
   async validateDataOnCreate(req, res, next) {
-    const { email, phone, cpf, rg } = req.body;
+    const {
+      email,
+      phone,
+      cpf,
+      rg
+    } = req.body;
 
     if (!(await schema.isValid(req.body))) {
       return res.json({
@@ -80,8 +85,15 @@ class PatientsMiddlewares {
   }
 
   async validateDataOnEdit(req, res, next) {
-    const { id } = req.params;
-    const { email, phone, cpf, rg } = req.body;
+    const {
+      id
+    } = req.params;
+    const {
+      email,
+      phone,
+      cpf,
+      rg
+    } = req.body;
 
     if (
       !(await PatientValidations.checkIfExists({
@@ -154,4 +166,4 @@ class PatientsMiddlewares {
   }
 }
 
-export default new PatientsMiddlewares();
+module.exports = new PatientsMiddlewares();

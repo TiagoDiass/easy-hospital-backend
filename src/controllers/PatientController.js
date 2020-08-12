@@ -1,5 +1,5 @@
-import knex from '../database/index';
-import PatientValidations from '../validations/PatientValidations';
+const knex = require('../database/index');
+const PatientValidations = require('../validations/PatientValidations');
 
 class PatientController {
   async index(req, res) {
@@ -127,4 +127,4 @@ class PatientController {
   }
 }
 
-export default new PatientController();
+module.exports = new PatientController();

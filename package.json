@@ -4,8 +4,9 @@
   "main": "src/server.js",
   "license": "MIT",
   "scripts": {
-    "start": "sucrase-node src/server.js",
-    "dev": "nodemon src/server.js"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "migrate:latest": "knex migrate:latest"
   },
   "dependencies": {
     "cors": "^2.8.5",

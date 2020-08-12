@@ -1,6 +1,6 @@
-import { Router } from 'express';
-import PatientController from '../controllers/PatientController';
-import PatientsMiddlewares from '../middlewares/PatientsMiddlewares';
+const { Router } = require('express');
+const PatientController = require('../controllers/PatientController');
+const PatientsMiddlewares = require('../middlewares/PatientsMiddlewares');
 
 const routes = new Router();
 
@@ -10,4 +10,4 @@ routes.get('/:id', PatientController.getOne);
 routes.put('/:id', PatientsMiddlewares.validateDataOnEdit, PatientController.edit);
 routes.delete('/:id', PatientController.delete);
 
-export default routes;
+module.exports = routes;

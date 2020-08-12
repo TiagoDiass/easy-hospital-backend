@@ -1,6 +1,6 @@
-import PatientsRoutes from './patients';
+const PatientsRoutes = require('./patients');
 
-export default {
+module.exports = {
   loadRoutes(app) {
     app.use('/patients', PatientsRoutes);
   },

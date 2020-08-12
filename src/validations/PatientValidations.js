@@ -1,4 +1,4 @@
-import knex from '../database';
+const knex = require('../database');
 
 class PatientValidations {
   async checkIfExists(condition) {
@@ -23,4 +23,4 @@ class PatientValidations {
   }
 }
 
-export default new PatientValidations();
+module.exports = new PatientValidations();
