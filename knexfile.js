@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    client: 'pg',
+    client: process.env.DB_CLIENT,
     connection: {
       host: process.env.PG_HOST,
       user: process.env.PG_USER,
@@ -20,7 +20,7 @@ module.exports = {
     },
 
     useNullAsDefault: true,
-  },
+  }
 
   // development old: {
   //   client: 'sqlite3',
