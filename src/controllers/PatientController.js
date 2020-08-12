@@ -11,18 +11,20 @@ class PatientController {
   async store(req, res) {
     const { name, email, phone, cpf, rg, birth, gender, weight, height, blood_type } = req.body;
 
-    const newPatientId = await knex('patients').insert({
-      name,
-      email,
-      phone,
-      cpf,
-      rg,
-      birth,
-      gender,
-      weight,
-      height,
-      blood_type,
-    });
+    const [newPatientId] = await knex('patients')
+      .insert({
+        name,
+        email,
+        phone,
+        cpf,
+        rg,
+        birth,
+        gender,
+        weight,
+        height,
+        blood_type,
+      })
+      .returning('id');
 
     const [newPatient] = await knex('patients')
       .where({

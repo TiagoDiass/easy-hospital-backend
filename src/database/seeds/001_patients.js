@@ -7,7 +7,7 @@ exports.seed = function (knex) {
       return knex('patients').insert([{
           name: 'Tiago Dias',
           email: 'tiago@gmail.com',
-          phone: '+5519912341234',
+          phone: '+5519996643581',
           cpf: '76027927267',
           rg: '151414002',
           birth: '2001-12-12',
