@@ -10,6 +10,7 @@ module.exports = {
       user: process.env.PG_USER,
       password: process.env.PG_PASSWORD,
       database: process.env.PG_DATABASE,
+      ssl: { rejectUnauthorized: false },
     },
 
     migrations: {
@@ -31,6 +32,7 @@ module.exports = {
       user: process.env.PG_USER,
       password: process.env.PG_PASSWORD,
       database: process.env.PG_DATABASE,
+      ssl: { rejectUnauthorized: false },
     },
 
     migrations: {
